@@ -28,6 +28,8 @@ import {
 import { center, dotGreen, dotRed, footerStyle } from "./styles/footer.css";
 import { switchControl, switchRoot, switchThumb } from "./styles/switch.css";
 import { State } from "./State";
+import { update } from "./update";
+import { Toaster } from "solid-toast";
 
 function App() {
    const [lockfileData, setLockfileData] = createSignal<string>();
@@ -44,6 +46,8 @@ function App() {
          setIsClientRunning(false);
       }
    }
+   
+   update();
 
    createEffect(() => {
       let clientInterval: NodeJS.Timeout;
@@ -114,6 +118,7 @@ function App() {
 
    return (
       <div class="container">
+         <Toaster position="top-center"/>
          <header class={headerStyle}>
             <div class={logo}>
                <Gamepad2 size={20} color="#FD9A00" />
