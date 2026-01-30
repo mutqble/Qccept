@@ -27,11 +27,16 @@
     "targets": "all",
     "icon": [
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "nsis": {
+        "languages": ["Korean"]
+      }
+    }
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDY3RkQ4MzE3MEM0NzU0MjgKUldRb1ZFY01GNFA5WjNFSjJTbGJZS3RxSjdkdE13emJhdnlmYXVaU3p4VEc4dGJteDZOTWk1MjMK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDVCNDMxREIxMkQ0NzM0QjMKUldTek5FY3RzUjFEVzk5QXZpSGViYVZDckY1VzZ5Q2R6RzROZzZtVlVhQUZFZ3hmcy9ERzRxM3MK",
       "endpoints": [
         "https://github.com/mutqble/Qccept/releases/latest/download/latest.json"
       ]
