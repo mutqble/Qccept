@@ -40,3 +40,4 @@ jobs:
         with:
           releaseId: ${{ github.event.release.id }}
           updaterJsonPreferNsis: true
+          args: "-b nsis,updater"
