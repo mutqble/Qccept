@@ -1,3 +1,5 @@
+use tauri::Manager;
+
 use crate::client::{get, get_client_path, get_lockfile, post};
 use crate::custom_err::CustomErr;
 use crate::search_state::{SearchState, State};
@@ -53,6 +55,12 @@ async fn lcu_post(lockfile_data: String, path: String) -> Result<(), String> {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_single_instance::init(|app, _, _| {
+            let _ = app
+                .get_webview_window("main")
+                .expect("no main window")
+                .set_focus();
+        }))
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_opener::init())
